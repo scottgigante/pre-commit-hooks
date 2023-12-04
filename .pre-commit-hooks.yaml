@@ -199,3 +199,9 @@
     language: python
     types: [text]
     stages: [commit, push, manual]
+-   id: jira-commit-msg-fixer
+    name: add JIRA issue IDs to commit message
+    description: Adds JIRA issue IDs to the git commit message
+    entry: jira-commit-msg-fixer
+    language: python
+    stages: [commit-msg]
