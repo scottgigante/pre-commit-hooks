@@ -6,7 +6,7 @@ from typing import IO
 from typing import Sequence
 
 import git
-REGEX_PATTERN = r'\b[A-Z]+-[0-9]+\b'
+REGEX_PATTERN = r'\b[A-Za-z]+-[0-9]+\b'
 
 
 def fix_message(file_obj: IO[str]) -> int:
@@ -19,7 +19,7 @@ def fix_message(file_obj: IO[str]) -> int:
     if len(matches) == 0:
         return 0
 
-    prepend_msg = f"[{','.join(matches)}]"
+    prepend_msg = f"[{','.join(matches)}]".upper()
     commit_msg = file_obj.read()
     if commit_msg.startswith(prepend_msg):
         return 0
